@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // FAN ART</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a>
+            <a href="fanart.html" class="active">FAN ART</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg></button>
+            <button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path></svg></button>
+        </div>
+    </header>
+
+    <main class="fa-shell">
+        <div class="fa-head">
+            <div>
+                <span class="pixel-label">// COMMUNITY</span>
+                <h1>FAN ART</h1>
+            </div>
+            <button class="outline-button" id="faOpen" type="button">+ UPLOAD ART</button>
+        </div>
+
+        <div class="fa-tools">
+            <div class="fa-filters" id="faFilters">
+                <button class="active" data-sort="new" type="button">NEWEST</button>
+                <button data-sort="top" type="button">MOST LIKED</button>
+                <button data-sort="mine" type="button">MY ART</button>
+            </div>
+            <input id="faSearch" class="fa-input" type="search" placeholder="Search title, anime or artist" aria-label="Search fan art">
+        </div>
+
+        <div id="faGrid" class="fa-grid"></div>
+        <p id="faEmpty" class="shop-status" hidden>NO ART FOUND. BE THE FIRST TO UPLOAD.</p>
+    </main>
+
+    <div class="fa-modal" id="faModal" hidden>
+        <form class="fa-form" id="faForm">
+            <h2>UPLOAD FAN ART</h2>
+            <input id="faFile" type="file" accept="image/*" required>
+            <img id="faPreview" class="fa-preview" alt="" hidden>
+            <input id="faTitle" class="fa-input" maxlength="50" placeholder="Title" required>
+            <input id="faAnime" class="fa-input" maxlength="50" placeholder="Anime / character">
+            <input id="faArtist" class="fa-input" maxlength="24" placeholder="Artist name">
+            <p id="faMsg" class="shop-status" aria-live="polite"></p>
+            <div class="fa-form-actions">
+                <button class="outline-button" type="submit">POST</button>
+                <button class="outline-button" type="button" id="faCancel">CANCEL</button>
+            </div>
+        </form>
+    </div>
+    <div class="fa-lightbox" id="faLight" hidden><img alt=""><p></p></div>
+
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="script.js"></script>
+    <script src="moderation.js"></script><script src="fanart.js"></script>
+</body>
+</html>

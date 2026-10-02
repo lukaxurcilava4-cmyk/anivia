@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // CARD GAME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="card-game-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="games.html" class="active">GAMES</a>
+            <a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg></button>
+            <button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path></svg></button>
+        </div>
+    </header>
+
+    <main class="gc-shell">
+        <a class="item-back" href="games.html">← BACK TO GAMES</a>
+        <div class="gc-head">
+            <div>
+                <span class="pixel-label">// STAKE DUEL</span>
+                <h1>CARD GAME</h1>
+            </div>
+            <div class="gc-score" id="gcScore" hidden>
+                <span>YOU <b id="gcYou">0</b></span>
+                <span>ROUND <b id="gcRound">1</b>/5</span>
+                <span>RIVAL <b id="gcRival">0</b></span>
+            </div>
+        </div>
+
+        <p id="gcInfo" class="gc-info"></p>
+
+        <section id="gcStage" class="gc-stage" hidden>
+            <div class="gc-slot"><span class="gc-slot-label">YOUR STAKE</span><div id="gcYourStake"></div></div>
+            <div class="gc-slot"><span class="gc-slot-label">RIVAL STAKE</span><div id="gcRivalStake"></div></div>
+        </section>
+
+        <section id="gcArena" class="gc-arena" hidden>
+            <div class="gc-slot"><span class="gc-slot-label">YOUR CARD</span><div id="gcYourPlay" class="gc-empty"></div></div>
+            <div class="gc-vs">VS</div>
+            <div class="gc-slot"><span class="gc-slot-label">RIVAL CARD</span><div id="gcRivalPlay" class="gc-empty"></div></div>
+        </section>
+
+        <div id="gcActions" class="gc-actions"></div>
+        <p id="gcMessage" class="shop-status" aria-live="polite"></p>
+
+        <h2 id="gcHandTitle" class="gc-title"></h2>
+        <div id="gcHand" class="gc-hand"></div>
+    </main>
+
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="script.js"></script>
+    <script src="cards-data.js"></script>
+    <script src="card-game.js"></script>
+</body>
+</html>

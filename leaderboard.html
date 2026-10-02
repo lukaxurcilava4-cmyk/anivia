@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // LEADERBOARD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="leaderboard-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="anime.html">ANIME</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a>
+            <a href="leaderboard.html" class="active">LEADERBOARD</a><a href="friends.html">FRIENDS</a>
+        </nav>
+        <div class="nav-buttons">
+            <a class="icon-button settings-nav-button" href="settings.html" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"></path><path d="m19 13 .1-2-1.8-.7a6 6 0 0 0-.7-1.6l.8-1.7-1.5-1.4-1.7.8a6 6 0 0 0-1.7-.7L12 4h-2l-.5 1.7a6 6 0 0 0-1.7.7L6.1 5.6 4.6 7l.8 1.7a6 6 0 0 0-.7 1.6L3 11v2l1.7.6c.2.6.4 1.1.7 1.6l-.8 1.7 1.5 1.4 1.7-.8c.5.3 1.1.5 1.7.7L10 20h2l.5-1.8a6 6 0 0 0 1.7-.7l1.7.8 1.5-1.4-.8-1.7c.3-.5.6-1 .7-1.6L19 13Z"></path></svg></a>
+            <button class="icon-button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg></button>
+            <button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7"></path><path d="M19 19c-1.7-3.1 4.2-4.7 7-4.7"></path></svg></button>
+        </div>
+    </header>
+
+    <main class="leaderboard-page-shell">
+        <header class="leaderboard-page-heading">
+            <div><span class="pixel-label">// ANIVIA GLOBAL RANKINGS</span><h1>LEADERBOARD</h1><p>Climb the signal. Hold your rank. Become the name everyone knows.</p></div>
+            <div class="leaderboard-season"><span>SEASON 01</span><strong>LIVE</strong></div>
+        </header>
+        <section class="leaderboard-panel leaderboard-page-panel" aria-label="Global leaderboard">
+            <div class="leaderboard-header"><span>RANK</span><span>PLAYER</span><span>POINTS</span></div>
+            <div class="leaderboard-list" id="leaderboardList"></div>
+        </section>
+    </main>
+
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // ITEM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="shop-page item-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html" class="active">SHOP</a><a href="cinema.html">CINEMA</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg></button>
+            <button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path></svg></button>
+        </div>
+    </header>
+
+    <main class="shop-item-page-shell">
+        <a href="shop.html" class="item-back">← BACK TO SHOP</a>
+        <section class="shop-item-detail">
+            <div id="itemPreview" class="shop-item-art stak-art"></div>
+            <div class="item-detail-copy">
+                <span id="itemType" class="shop-item-type">PROFILE FRAME</span>
+                <h1 id="itemTitle">PROFILE FRAME</h1>
+                <p id="itemDescription">Give your avatar a bright neon city-signal border.</p>
+                <div class="item-buy-row">
+                    <span class="item-price"><img class="stak-star" src="assets/pk-big.png" alt="" aria-hidden="true"> <b id="itemPrice">250 STAK</b> <small class="item-balance">BALANCE: <b id="itemBalance">0</b></small></span>
+                    <button id="itemBuy" class="main-button" type="button">BUY ITEM</button>
+                </div>
+                <p id="itemStatus" class="shop-status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="script.js"></script>
+    <script src="stak.js"></script>
+</body>
+</html>

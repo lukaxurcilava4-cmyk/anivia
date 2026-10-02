@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // CINEMA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html">SHOP</a>
+            <a href="cinema.html" class="active">CINEMA</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg></button>
+            <button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path></svg></button>
+        </div>
+    </header>
+
+    <main class="cn-shell">
+        <section class="cn-feat" id="cnFeat">
+            <span class="pixel-label">// TONIGHT'S PICK</span>
+            <h1 id="cnFeatTitle"></h1>
+            <p id="cnFeatSum"></p>
+            <button class="main-button" id="cnFeatBtn" type="button">VIEW DETAILS</button>
+        </section>
+
+        <div class="cn-tools">
+            <div class="cn-chips" id="cnView">
+                <button class="active" data-v="all" type="button">ALL MOVIES</button>
+                <button data-v="watchlist" type="button">MY WATCHLIST</button>
+                <button data-v="studio" type="button">MY STUDIO</button>
+                <button class="outline-button" id="cnUpOpen" type="button">+ UPLOAD ANIMATION</button>
+            </div>
+            <div class="cn-right">
+                <select id="cnSort" class="fa-input" aria-label="Sort">
+                    <option value="year">NEWEST</option>
+                    <option value="rating">MY RATING</option>
+                    <option value="az">A-Z</option>
+                </select>
+                <input id="cnSearch" class="fa-input" type="search" placeholder="Search title, director, genre" aria-label="Search movies">
+            </div>
+        </div>
+        <div class="cn-chips" id="cnGenres"></div>
+
+        <div class="cn-grid" id="cnGrid"></div>
+        <section class="cn-studio" id="cnStudio" hidden></section>
+        <p class="shop-status" id="cnEmpty" hidden></p>
+    </main>
+
+    <div class="cn-modal" id="cnModal" hidden>
+        <div class="cn-m-box">
+            <div class="cn-m-poster"></div>
+            <div class="cn-m-body">
+                <h2></h2>
+                <p class="cn-m-meta"></p>
+                <p class="cn-m-sum"></p>
+                <div class="cn-m-actions">
+                    <a class="main-button cn-m-trailer" href="#" target="_blank" rel="noopener noreferrer">▶ WATCH TRAILER</a>
+                    <button class="outline-button cn-m-wl" type="button"></button>
+                    <button class="outline-button cn-m-close" type="button">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cn-modal" id="cnFilm" hidden>
+        <div class="cn-m-box cn-film-box">
+            <div class="cn-m-body cn-film-body">
+                <video id="cnVideo" class="cn-video" controls controlsList="nodownload" disablePictureInPicture></video>
+                <p class="cn-video-label" id="cnVideoLabel"></p>
+                <h2 id="cnFilmTitle"></h2>
+                <p class="cn-m-meta" id="cnFilmMeta"></p>
+                <p class="cn-m-sum" id="cnFilmDesc"></p>
+                <p class="shop-status" id="cnFilmMsg" aria-live="polite"></p>
+                <div class="cn-m-actions">
+                    <button class="main-button" id="cnFilmBuy" type="button"></button>
+                    <button class="outline-button" id="cnFilmTrailer" type="button" hidden>▶ BACK TO TRAILER</button>
+                    <button class="outline-button" id="cnFilmReport" type="button">⚑ REPORT / COPYRIGHT</button>
+                    <button class="outline-button" id="cnFilmClose" type="button">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cn-modal" id="cnUpload" hidden>
+        <form class="cn-up cn-wiz" id="cnUpForm" autocomplete="off" novalidate>
+            <div class="cn-wiz-head"><h2 id="wizTitle">UPLOAD VIDEOS</h2><button class="outline-button" id="upCancel" type="button">X</button></div>
+            <ol class="cn-steps" id="wizSteps"><li class="on">UPLOAD</li><li>DETAILS</li><li>TICKET &amp; RIGHTS</li><li>CHECKS</li></ol>
+
+            <div class="cn-step" data-step="0">
+                <label class="cn-drop" id="dropVideo" data-kind="video"><input id="upVideo" type="file" accept="video/mp4,video/webm"><b>&#9654; DRAG THE FULL ANIMATION HERE</b><small>or click to select. MP4/WEBM, 250MB max, at least 30s</small><video class="cn-prev" muted></video><em></em></label>
+                <label class="cn-drop" id="dropTrailer" data-kind="video"><input id="upTrailer" type="file" accept="video/mp4,video/webm"><b>&#127910; FREE TRAILER</b><small>Everyone can watch this. MP4/WEBM, max 120s, 60MB</small><video class="cn-prev" muted></video><em></em></label>
+                <label class="cn-drop" id="dropPoster" data-kind="image"><input id="upPoster" type="file" accept="image/png,image/jpeg,image/webp"><b>&#128247; POSTER (THUMBNAIL)</b><small>Portrait image, at least 400px wide</small><img class="cn-prev" alt=""><em></em></label>
+            </div>
+
+            <div class="cn-step" data-step="1" hidden>
+                <label>TITLE<input id="upTitle" class="fa-input" maxlength="60"><small class="cn-count" data-for="upTitle"></small></label>
+                <label>DESCRIPTION<textarea id="upDesc" class="fa-input" rows="4" maxlength="500"></textarea><small class="cn-count" data-for="upDesc"></small></label>
+                <label>CHANNEL / STUDIO NAME<input id="upCreator" class="fa-input" maxlength="30"></label>
+                <div class="cn-up-genres" id="upGenres"></div>
+            </div>
+
+            <div class="cn-step" data-step="2" hidden>
+                <label>TICKET PRICE (STAK, 10 - 5000)<input id="upPrice" class="fa-input" type="number" min="10" max="5000" step="1" value="100"></label>
+                <p class="cn-m-meta" id="upEarn"></p>
+                <details class="cn-terms"><summary>READ: CREATOR TERMS</summary>
+                <p>1. You may sell tickets for animations you uploaded. ANIVIA keeps a 10% platform fee from each ticket, and you receive 90%.<br>2. Ticket prices are set by you between 10 and 5000 STAK. Refunds are only given if a film is removed or does not play.<br>3. Your trailer is always free to watch. The full film is only available to ticket holders.<br>4. Earnings are paid out once your balance reaches the payout minimum and your identity is verified.<br>5. Accounts that break these terms may be suspended and unpaid earnings withheld.</p>
+            </details>
+            <details class="cn-terms"><summary>READ: UPLOAD AGREEMENT</summary>
+                <p>1. You give ANIVIA a non-exclusive licence to host, stream and show your poster, trailer and film to ticket buyers.<br>2. You keep ownership of your work. You can delete it at any time; existing ticket holders may keep access for 30 days.<br>3. Content must not contain nudity or sexual content, hate, harassment or bullying, or illegal material.<br>4. ANIVIA may remove content that breaks these rules or the law, without notice.</p>
+            </details>
+            <details class="cn-terms"><summary>READ: COPYRIGHT DECLARATION</summary>
+                <p>1. You must own, or hold a written licence for, everything in your upload: animation, characters, story, music, voices and sound effects.<br>2. Uploading clips, episodes or films from other studios, fan dubs of paid releases, or music you have no licence for is forbidden.<br>3. Copyright owners can report your film. Reported films are removed while we investigate, and repeat infringers are banned and forfeit earnings.<br>4. False declarations make you personally responsible for any claims.</p>
+            </details>
+
+            
+                <label class="cn-check"><input type="checkbox" id="upT1"> I have read and accept the <b>Creator Terms</b>.</label>
+            <label class="cn-check"><input type="checkbox" id="upT2"> I have read and accept the <b>Upload Agreement</b>.</label>
+            <label class="cn-check"><input type="checkbox" id="upT3"> I confirm I <b>own all rights</b> to this animation, its music and its sounds, or hold a licence to sell it.</label>
+            <label class="cn-check"><input type="checkbox" id="upT4"> It contains <b>no NSFW, hate or bullying</b> content.</label>
+            <label>TYPE YOUR FULL LEGAL NAME TO SIGN<input id="upSign" class="fa-input" maxlength="60"></label>
+
+            
+                <label>TYPE YOUR FULL LEGAL NAME TO SIGN<input id="upSign" class="fa-input" maxlength="60"></label>
+            </div>
+
+            <div class="cn-step" data-step="3" hidden>
+                <div class="cn-sum" id="upSummary"></div>
+                <p class="cn-m-meta">PRESS PUBLISH TO RUN THE FULL CHECK. THE FILM GOES LIVE ONLY IF EVERY CHECK PASSES.</p>
+                <ul class="cn-checks" id="upChecks"></ul>
+            </div>
+
+            <div class="cn-m-actions">
+                <button class="outline-button" id="wizBack" type="button" hidden>BACK</button>
+                <button class="main-button" id="wizNext" type="button">NEXT</button>
+                <button class="main-button" id="upSubmit" type="submit" hidden>RUN CHECKS &amp; PUBLISH</button>
+            </div>
+            <p class="shop-status" id="wizMsg"></p>
+        </form>
+    </div>
+
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="script.js"></script>
+    <script src="stak.js"></script>
+    <script src="moderation.js"></script>
+    <script src="cinema.js"></script>
+    <script src="cinema-studio.js"></script>
+    <script src="cinema-wizard.js"></script>
+</body>
+</html>

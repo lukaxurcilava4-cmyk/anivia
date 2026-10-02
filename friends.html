@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANIVIA // FRIENDS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="friends-page">
+  <header class="navbar">
+    <a class="logo" href="index.html">ANI<span>VIA</span></a>
+    <nav><a href="index.html">HOME</a><a href="anime.html">ANIME</a><a href="games.html">GAMES</a><a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a><a href="leaderboard.html">LEADERBOARD</a><a href="friends.html" class="active">FRIENDS</a></nav>
+    <div class="nav-buttons"><a class="icon-button settings-nav-button" href="settings.html" aria-label="Settings"><span>⚙</span></a><button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7"></path><path d="M19 19c-1.7-3.1 4.2-4.7 7-4.7"></path></svg></button></div>
+  </header>
+  <main class="friends-shell">
+    <header class="friends-heading"><div><span class="pixel-label">// SOCIAL NETWORK</span><h1>FRIENDS</h1><p>Build your squad, manage requests, and find your next teammate.</p></div><span id="friendNotificationBadge" class="friend-notification-badge hidden">0</span></header>
+    <div id="friendsNotice" class="friends-notice" role="status"></div>
+    <div class="friends-layout">
+      <aside class="friends-sidebar"><button class="friends-tab active" data-view="friends" type="button">FRIENDS <b id="friendCount">0</b></button><button class="friends-tab" data-view="requests" type="button">REQUESTS <b id="requestCount">0</b></button><button class="friends-tab" data-view="sent" type="button">SENT <b id="sentCount">0</b></button><button class="friends-tab" data-view="notifications" type="button">NOTIFICATIONS <b id="notificationCount">0</b></button></aside>
+      <section class="friends-content">
+        <div class="friends-toolbar"><input id="friendSearch" type="search" placeholder="Search friends..." aria-label="Search friends"><button id="refreshFriends" class="outline-button" type="button">REFRESH</button></div>
+        <div id="friendsList" class="friend-card-grid"></div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+  <script src="script.js"></script><script src="friends.js"></script>
+</body>
+</html>

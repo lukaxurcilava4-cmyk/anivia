@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // SHOP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="shop-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="anime.html">ANIME</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html" class="active">SHOP</a><a href="cinema.html">CINEMA</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg></button>
+            <button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path></svg></button>
+        </div>
+    </header>
+
+    <main class="shop-page-shell">
+        <section class="shop-page-header">
+            <div>
+                <span class="pixel-label">// ANIVIA MARKET</span>
+                <h1>SHOP</h1>
+                <p>Buy STAK, then unlock frames, badges and effects for your profile.</p>
+            </div>
+            <div class="stak-pill" aria-label="STAK balance"><img class="stak-star" src="assets/pk-big.png" alt="" aria-hidden="true"><b id="stakBalance">0</b> STAK</div>
+        </section>
+
+        <div id="stakTabs" class="stak-tabs" role="tablist" aria-label="Shop categories"></div>
+        <div id="stakPanel"></div>
+        <p id="shopStatus" class="shop-status" aria-live="polite"></p>
+    </main>
+
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="script.js"></script>
+    <script src="stak.js"></script>
+</body>
+</html>

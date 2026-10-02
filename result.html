@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // RESULT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="result-page">
+    <header class="navbar">
+        <div class="logo">ANI<span>VIA</span></div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="anime.html">ANIME</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="5.5"></circle>
+                    <path d="M16 16L21 21"></path>
+                </svg>
+            </button>
+            <button class="profile-button" aria-label="Profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3.8"></circle>
+                    <path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="result-page-shell">
+        <section class="result-panel">
+            <div class="result-header">
+                <span class="pixel-label">// MATCH OVER</span>
+                <h1>RESULT</h1>
+            </div>
+
+            <div class="result-players">
+                <div class="player-box loser">
+                    <div class="player-avatar">L</div>
+                    <span class="player-role" id="loserRole">LOSER</span>
+                    <h2 id="loserName">YOU</h2>
+                    <span class="result-score" id="loserScore">0 PTS</span>
+                </div>
+
+                <div class="vs-mark">VS</div>
+
+                <div class="player-box winner">
+                    <div class="player-avatar">W</div>
+                    <span class="player-role" id="winnerRole">WINNER</span>
+                    <h2 id="winnerName">OPPONENT</h2>
+                    <span class="result-score" id="winnerScore">0 PTS</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">ANI<span>VIA</span></div>
+        <p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

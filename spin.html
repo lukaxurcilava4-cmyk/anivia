@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // SPIN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="spin-page">
+    <header class="navbar spin-navbar">
+        <div class="logo">ANI<span>VIA</span></div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="anime.html">ANIME</a>
+            <a href="games.html" class="active">GAMES</a>
+            <a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="5.5"></circle>
+                    <path d="M16 16L21 21"></path>
+                </svg>
+            </button>
+            <button class="profile-button" aria-label="Profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3.8"></circle>
+                    <path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="spin-page-shell">
+        <section class="spin-header">
+            <div>
+                <span class="pixel-label">// RANDOMIZER ONLINE</span>
+                <h1>SPIN THE ANIME</h1>
+                <p>Let the wheel choose your next anime challenge.</p>
+            </div>
+            <a href="games.html" class="outline-button spin-back">BACK TO GAMES</a>
+        </section>
+
+        <section class="spin-layout">
+            <div class="spin-machine">
+                <div class="spin-wheel-wrap">
+                    <div class="spin-pointer" aria-hidden="true"></div>
+                    <div id="spinWheel" class="spin-wheel" aria-label="Anime challenge wheel">
+                        <span>OPENING</span>
+                        <span>CHARACTER</span>
+                        <span>QUOTE</span>
+                        <span>VILLAIN</span>
+                        <span>POWER</span>
+                        <span>TRIVIA</span>
+                    </div>
+                    <div class="spin-core">SPIN</div>
+                </div>
+                <div class="card-grid-panel" aria-label="50 anime cards">
+                    <span class="card-grid-label">50 CARD DECK</span>
+                    <div id="cardGrid" class="card-grid"></div>
+                </div>
+                <a class="all-cards-button" href="spin-cards.html">ALL CARDS →</a>
+            </div>
+
+            <aside class="spin-result-panel">
+                <span class="small-label">CURRENT RESULT</span>
+                <div id="spinResult" class="spin-result">READY?</div>
+                <p id="spinMessage">Press the button and accept your next anime challenge.</p>
+                <button id="spinButton" class="main-button spin-button" type="button">SPIN NOW</button>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">ANI<span>VIA</span></div>
+        <p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // ANIME DRAFT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auction-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav><a href="index.html">HOME</a><a href="anime.html">ANIME</a><a href="games.html" class="active">GAMES</a><a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a></nav>
+        <div class="nav-buttons"><button class="icon-button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg></button><button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7"></path><path d="M19 19c-1.7-3.1-4.2-4.7-7-4.7"></path></svg></button></div>
+    </header>
+
+    <main class="auction-shell">
+        <div class="auction-heading"><div><span class="pixel-label">// PRIVATE MATCH NETWORK</span><h1>ANIME DRAFT</h1><p>BUILD YOUR TEAM. OUTBID YOUR FRIEND.</p></div><a href="games.html" class="outline-button">BACK TO GAMES</a></div>
+        <div id="auctionNotice" class="auction-notice" role="status"></div>
+
+        <section id="auctionHome" class="auction-screen auction-home-screen">
+            <div class="auction-home-copy"><span class="auction-signal">VIRTUAL CURRENCY ONLY // $20 PER MATCH</span><h2>KNOW YOUR HEROES.<br>SPEND LIKE A SHOGUN.</h2><p>Create a private room, invite a friend, or find a live opponent. Five characters. One final power score.</p></div>
+            <div class="auction-home-actions"><button id="createRoomButton" class="main-button">CREATE ROOM</button><button id="joinRoomButton" class="outline-button">JOIN ROOM</button><button id="randomMatchButton" class="outline-button">FIND RANDOM OPPONENT</button><button id="cancelMatchButton" class="text-button hidden">CANCEL SEARCH</button><button id="howToPlayButton" class="text-button">HOW TO PLAY</button></div>
+            <div id="howToPlay" class="how-to-play hidden"><b>HOW IT WORKS</b><span>Both players start with $20 virtual currency. Bid without seeing power values, pass when the price gets too high, and build a five-character team.</span></div>
+        </section>
+
+        <section id="roomPanel" class="auction-screen room-panel hidden">
+            <div class="room-panel-top"><div><span class="auction-signal">ROOM LOBBY</span><h2>ANIME DRAFT</h2></div><button id="leaveRoomButton" class="text-button">LEAVE GAME</button></div>
+            <div class="room-code-block"><span>ROOM CODE</span><strong id="roomCodeDisplay">------</strong><button id="copyRoomButton" class="outline-button">COPY CODE</button></div>
+            <div class="room-players"><article class="room-player"><span class="player-slot">PLAYER 1</span><strong id="playerOneName">WAITING</strong><span id="playerOneState">○ WAITING</span></article><article class="room-player"><span class="player-slot">PLAYER 2</span><strong id="playerTwoName">WAITING</strong><span id="playerTwoState">○ WAITING</span></article></div>
+            <div id="animeSelection" class="anime-selection hidden"><div class="room-panel-top"><div><span class="auction-signal">HOST SELECTS THE UNIVERSE</span><h3>CHOOSE YOUR BATTLE</h3></div><span id="animeSelectedLabel" class="auction-signal">NOT SELECTED</span></div><div id="animeGrid" class="anime-grid"></div></div>
+            <div class="room-actions"><button id="readyButton" class="main-button">READY</button><button id="startAuctionButton" class="main-button hidden">START AUCTION</button></div>
+        </section>
+
+        <section id="auctionPanel" class="auction-screen auction-game hidden">
+            <div class="auction-game-top"><div><span class="auction-signal">LIVE AUCTION // <b id="auctionRound">ROUND 1 / 5</b></span><h2 id="auctionAnimeName">NARUTO</h2></div><button id="auctionLeaveButton" class="text-button">LEAVE GAME</button></div>
+            <div class="auction-players"><article class="auction-player"><span>PLAYER 1</span><strong id="auctionPlayerOneName">PLAYER 1</strong><b>$<i id="auctionPlayerOneBalance">20</i></b><small>TEAM <em id="auctionPlayerOneTeam">0</em> / 5</small></article><article class="auction-player auction-player-right"><span>PLAYER 2</span><strong id="auctionPlayerTwoName">PLAYER 2</strong><b>$<i id="auctionPlayerTwoBalance">20</i></b><small>TEAM <em id="auctionPlayerTwoTeam">0</em> / 5</small></article></div>
+            <div class="auction-card"><span class="auction-signal">CURRENT CHARACTER</span><div id="auctionCharacterArt" class="auction-character-art">?</div><h2 id="auctionCharacterName">WAITING...</h2><span id="auctionCharacterAnime" class="auction-character-anime">NARUTO</span><div class="auction-current"><span>CURRENT BID <strong>$<i id="auctionCurrentBid">0</i></strong></span><span>LEADER <strong id="auctionCurrentLeader">NO BIDS</strong></span><span>TIME <strong id="auctionTimer">20</strong></span></div></div>
+            <div class="auction-controls"><div class="bid-buttons"><button data-bid="1">+$1</button><button data-bid="2">+$2</button><button data-bid="5">+$5</button></div><div class="custom-bid"><input id="customBidInput" type="number" min="1" max="20" placeholder="BID"><button id="customBidButton" class="outline-button">BID</button></div><button id="passButton" class="text-button danger-button">PASS ON THIS CHARACTER</button></div>
+            <div id="auctionFeed" class="auction-feed" aria-live="polite"></div>
+        </section>
+
+        <section id="resultPanel" class="auction-screen result-auction hidden"><div class="result-auction-heading"><span class="auction-signal">// FINAL BATTLE</span><h2 id="resultWinner">MATCH COMPLETE</h2><p>ANIME: <b id="resultAnime">NARUTO</b></p></div><div class="result-teams"><article><h3 id="resultPlayerOneName">PLAYER 1</h3><div id="resultPlayerOneTeam"></div><strong>TOTAL POWER <b id="resultPlayerOnePower">0</b></strong></article><div class="result-vs">VS</div><article><h3 id="resultPlayerTwoName">PLAYER 2</h3><div id="resultPlayerTwoTeam"></div><strong>TOTAL POWER <b id="resultPlayerTwoPower">0</b></strong></article></div><div class="result-actions"><button id="shareResultButton" class="outline-button">SHARE RESULT</button><button id="copyResultButton" class="outline-button">COPY RESULT</button><button id="rematchButton" class="main-button">PLAY AGAIN</button></div></section>
+    </main>
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+    <script src="auction.js"></script>
+</body>
+</html>

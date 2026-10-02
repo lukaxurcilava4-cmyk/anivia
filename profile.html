@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // PROFILE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="profile-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a>
+        </nav>
+        <div class="nav-buttons">
+            <button class="icon-button" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="M16 16L21 21"></path></svg>
+            </button>
+            <button class="profile-button" aria-label="Profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7s5.3 1.6 7 4.7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="cyber-city" aria-hidden="true">
+        <span class="city-building building-one"><i></i><b></b><em></em><strong></strong></span>
+        <span class="city-building building-two"><i></i><b></b><em></em><strong></strong></span>
+        <span class="city-building building-three"><i></i><b></b><em></em><strong></strong></span>
+        <span class="city-building building-four"><i></i><b></b><em></em><strong></strong></span>
+        <span class="city-building building-five"><i></i><b></b><em></em><strong></strong></span>
+        <span class="city-building building-six"><i></i><b></b><em></em><strong></strong></span>
+        <span class="city-building building-seven"><i></i><b></b><em></em><strong></strong></span>
+        <span class="city-sign sign-one">NOVA</span>
+        <span class="city-sign sign-two">ANIME</span>
+        <span class="city-sign sign-three">07</span>
+        <span class="city-hologram holo-one">LIVE<br>FEED</span>
+        <span class="city-hologram holo-two">N7</span>
+        <span class="sky-beacon beacon-one"></span>
+        <span class="sky-beacon beacon-two"></span>
+        <span class="flying-car flyer-one"></span>
+        <span class="flying-car flyer-two"></span>
+        <span class="city-rail"></span>
+        <span class="city-car car-one"></span>
+        <span class="city-car car-two"></span>
+        <span class="city-rain rain-one"></span>
+        <span class="city-rain rain-two"></span>
+        <span class="city-rain rain-three"></span>
+        <span class="city-rain rain-four"></span>
+    </div>
+
+    <main class="profile-page-shell">
+        <section class="profile-card">
+            <button id="profileAvatar" class="profile-avatar-large" type="button" aria-label="Change profile picture">YOU</button>
+            <h1 id="profileName">PLAYER</h1>
+            <p id="profileEmail" class="profile-email"></p>
+            <p class="profile-status">● ONLINE // ANIVIA MEMBER</p>
+            <div class="profile-stats">
+                <div><span>SCORE</span><strong id="profileScore">1,250</strong></div>
+                <div><span>RANK</span><strong>#02</strong></div>
+                <div><span>GAMES</span><strong>00</strong></div>
+            </div>
+            <section class="profile-friends-panel"><div><span class="small-label">FRIENDS</span><strong>128 FRIENDS</strong></div><a class="outline-button" href="friends.html">VIEW FRIENDS</a></section>
+            <div class="profile-editor">
+                <label for="nicknameInput">NICKNAME</label>
+                <div class="profile-edit-row">
+                    <input id="nicknameInput" type="text" maxlength="18" placeholder="Choose a nickname">
+                    <button id="saveNickname" class="main-button" type="button">SAVE</button>
+                </div>
+                <div id="pfpPicker" class="profile-pfp-picker hidden">
+                    <span class="small-label">CHOOSE PROFILE PICTURE</span>
+                    <div class="pfp-options" aria-label="Choose profile picture">
+                        <button class="pfp-option pfp-purple" data-pfp="YOU" type="button">YOU</button>
+                        <button class="pfp-option pfp-blue" data-pfp="VX" type="button">VX</button>
+                        <button class="pfp-option pfp-pink" data-pfp="☆" type="button">☆</button>
+                        <button class="pfp-option pfp-green" data-pfp="N7" type="button">N7</button>
+                    </div>
+                </div>
+                <p id="profileUpdateStatus" class="profile-update-status" aria-live="polite"></p>
+            </div>
+            <button id="logoutButton" class="outline-button" type="button">LOG OUT</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">ANI<span>VIA</span></div>
+        <p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="stak.js"></script>
+</body>
+</html>

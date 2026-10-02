@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // SETTINGS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="settings-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav><a href="index.html">HOME</a><a href="anime.html">ANIME</a><a href="games.html">GAMES</a><a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a><a href="leaderboard.html">LEADERBOARD</a></nav>
+        <div class="nav-buttons"><a class="icon-button settings-active" href="settings.html" aria-label="Settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"></path><path d="m19 13 .1-2-1.8-.7a6 6 0 0 0-.7-1.6l.8-1.7-1.5-1.4-1.7.8a6 6 0 0 0-1.7-.7L12 4h-2l-.5 1.7a6 6 0 0 0-1.7.7L6.1 5.6 4.6 7l.8 1.7a6 6 0 0 0-.7 1.6L3 11v2l1.7.6c.2.6.4 1.1.7 1.6l-.8 1.7 1.5 1.4 1.7-.8c.5.3 1.1.5 1.7.7L10 20h2l.5-1.8a6 6 0 0 0 1.7-.7l1.7.8 1.5-1.4-.8-1.7c.3-.5.6-1 .7-1.6L19 13Z"></path></svg></a><button class="profile-button" aria-label="Profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"></circle><path d="M5 19c1.7-3.1 4.2-4.7 7-4.7"></path><path d="M19 19c-1.7-3.1 4.2-4.7 7-4.7"></path></svg></button></div>
+    </header>
+    <main class="settings-shell">
+        <div class="settings-heading"><span class="pixel-label">// PLAYER CONFIGURATION</span><h1>SETTINGS</h1><p>Manage your ANIVIA account, feed, and terminal preferences.</p></div>
+        <div class="settings-layout">
+            <aside class="settings-sidebar" aria-label="Settings sections">
+                <button class="settings-tab active" type="button">ACCOUNT</button>
+                <button class="settings-tab" type="button">FEED</button>
+                <button class="settings-tab" type="button">NOTIFICATIONS</button>
+                <button class="settings-tab" type="button">PRIVACY</button>
+                <button class="settings-tab" type="button">APPEARANCE</button>
+            </aside>
+            <section class="settings-content">
+                <div class="settings-section-title"><span class="pixel-label">// ACCOUNT</span><h2>PROFILE PREFERENCES</h2></div>
+                <label class="settings-row"><span><strong>LANGUAGE</strong><small>Choose the interface language.</small></span><select id="languageSetting" aria-label="Interface language"><option value="en">ENGLISH</option><option value="es">ESPAÑOL</option><option value="fr">FRANÇAIS</option><option value="de">DEUTSCH</option><option value="it">ITALIANO</option><option value="pt">PORTUGUÊS</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="zh">中文</option><option value="ar">العربية</option><option value="tr">TÜRKÇE</option><option value="ka">ქართული</option><option value="uk">УКРАЇНСЬКА</option></select></label>
+                <label class="settings-row"><span><strong>PROFILE VISIBILITY</strong><small>Let other players find your profile and scores.</small></span><input id="profileVisibilitySetting" type="checkbox" checked></label>
+                <div class="settings-section-title"><span class="pixel-label">// FEED</span><h2>CONTENT PREFERENCES</h2></div>
+                <label class="settings-row"><span><strong>AUTOPLAY PREVIEWS</strong><small>Allow animated previews in community and shop surfaces.</small></span><input id="autoplaySetting" type="checkbox" checked></label>
+                <label class="settings-row"><span><strong>SHOW SPOILERS</strong><small>Reveal anime discussion content marked as spoilers.</small></span><input id="spoilerSetting" type="checkbox"></label>
+                <div class="settings-section-title"><span class="pixel-label">// APPEARANCE</span><h2>TERMINAL DISPLAY</h2></div>
+                <label class="settings-row"><span><strong>REDUCE MOTION</strong><small>Soften animated city atmosphere and transitions.</small></span><input id="reduceMotionSetting" type="checkbox"></label>
+                <label class="settings-row"><span><strong>CRT EFFECT</strong><small>Toggle scanline ambience across the interface.</small></span><input id="crtSetting" type="checkbox" checked></label>
+                <label class="settings-row"><span><strong>GAME SOUND</strong><small>Use original retro sound effects in games.</small></span><input id="soundSetting" type="checkbox"></label>
+                <p id="settingsStatus" class="settings-status" aria-live="polite"></p>
+            </section>
+        </div>
+    </main>
+    <footer><div class="logo">ANI<span>VIA</span></div><p>© 2026 ANIVIA // ALL SYSTEMS ONLINE</p></footer>
+    <script src="script.js"></script>
+    <script>
+            document.querySelectorAll('.settings-row input, .settings-row select').forEach((input) => {
+                const savedValue = localStorage.getItem(`aniviaSetting_${input.id}`);
+                if (savedValue !== null) input[input.type === 'checkbox' ? 'checked' : 'value'] = input.type === 'checkbox' ? savedValue === 'true' : savedValue;
+                input.addEventListener('change', () => {
+                    const value = input.type === 'checkbox' ? String(input.checked) : input.value;
+                    localStorage.setItem(`aniviaSetting_${input.id}`, value);
+                      if (input.id === 'languageSetting') window.applyInterfaceLanguage(input.value);
+                    document.getElementById('settingsStatus').textContent = 'SETTINGS SAVED.';
+                });
+            });
+            document.documentElement.lang = localStorage.getItem('aniviaSetting_languageSetting') || 'en';
+            document.querySelectorAll('.settings-tab').forEach((tab) => tab.addEventListener('click', () => {
+                document.querySelectorAll('.settings-tab').forEach((item) => item.classList.remove('active'));
+                tab.classList.add('active');
+                const target = [...document.querySelectorAll('.settings-section-title')].find((section) => section.textContent.includes(tab.textContent.trim()));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('settingsStatus').textContent = `${tab.textContent.trim()} SECTION ACTIVE.`;
+            }));
+    </script>
+</body>
+</html>

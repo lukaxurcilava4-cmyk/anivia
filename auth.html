@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIVIA // ACCESS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <header class="navbar auth-navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <div class="auth-nav-links"><a class="auth-home-link" href="shop.html">SHOP</a><a class="outline-button auth-home-link" href="index.html">BACK HOME</a></div>
+    </header>
+
+    <main class="auth-page-shell">
+        <section class="auth-card">
+            <div class="auth-signal">// PLAYER ACCESS TERMINAL</div>
+            <h1 id="authTitle">LOGIN</h1>
+            <p id="authSubtitle">Enter the arena and continue your ANIVIA run.</p>
+
+            <form id="authForm" class="auth-form">
+                <label for="authEmail">EMAIL</label>
+                <input id="authEmail" type="email" placeholder="player@anivia.com" required>
+
+                <label for="authPassword">PASSWORD</label>
+                <input id="authPassword" type="password" placeholder="Enter password" required>
+
+                <div id="confirmPasswordWrap" class="auth-confirm hidden">
+                    <label for="confirmPassword">CONFIRM PASSWORD</label>
+                    <input id="confirmPassword" type="password" placeholder="Repeat password">
+                </div>
+
+                <button class="main-button auth-submit" type="submit">ENTER SYSTEM</button>
+            </form>
+
+            <div class="auth-switch-row">
+                <span id="authSwitchText">New player?</span>
+                <button id="authSwitch" class="auth-switch" type="button">SIGN UP</button>
+            </div>
+            <p id="authStatus" class="auth-status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

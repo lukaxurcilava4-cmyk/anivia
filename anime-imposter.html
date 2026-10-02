@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08040e">
+    <title>ANIVIA // ANIME IMPOSTER</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="anime-imposter.css">
+</head>
+<body class="imposter-page">
+    <header class="navbar">
+        <a class="logo" href="index.html">ANI<span>VIA</span></a>
+        <nav><a href="index.html">HOME</a><a href="anime.html">ANIME</a><a href="games.html" class="active">GAMES</a><a href="shop.html">SHOP</a><a href="cinema.html">CINEMA</a></nav>
+        <div class="nav-buttons"><button id="soundToggle" class="imposter-sound" type="button" aria-pressed="false">SOUND OFF</button></div>
+    </header>
+    <main class="imposter-shell">
+        <section class="imposter-hero">
+            <div class="pixel-label">// SOCIAL DEDUCTION PROTOCOL</div>
+            <h1>ANIME <span>IMPOSTER</span></h1>
+            <p>Can you find the impostor?</p>
+        </section>
+        <div id="imposterNotice" class="imposter-notice" role="status" aria-live="polite"></div>
+        <section id="homePanel" class="imposter-panel">
+            <div class="imposter-form-grid">
+                <label class="imposter-field">YOUR CALLSIGN<input id="nicknameInput" maxlength="16" autocomplete="nickname" placeholder="2–16 characters" aria-label="Your nickname"></label>
+                <label class="imposter-field">PRIVATE ROOM CAPACITY<select id="capacityInput"><option value="4">4 PLAYERS</option><option value="3">3 PLAYERS</option></select></label>
+            </div>
+            <div class="imposter-actions">
+                <button id="createRoomButton" class="main-button">CREATE ROOM</button>
+                <button id="randomMatchButton" class="outline-button">RANDOM MATCH</button>
+                <button id="cancelMatchButton" class="text-button hidden">CANCEL SEARCH</button>
+            </div>
+            <div class="imposter-join-row">
+                <label class="imposter-field">ROOM CODE<input id="roomCodeInput" maxlength="6" autocomplete="off" placeholder="A7K9X"></label>
+                <button id="joinRoomButton" class="outline-button">JOIN ROOM</button>
+            </div>
+            <div class="imposter-lower-controls">
+                <label class="imposter-check"><input id="finalGuessInput" type="checkbox" checked> ALLOW THE IMPOSTOR A FINAL GUESS</label>
+                <button id="howToPlayButton" class="text-button" aria-expanded="false">HOW TO PLAY</button>
+            </div>
+            <div id="howToPlay" class="imposter-howto hidden">
+                <strong>READ THE ROOM. FIND THE IMPOSTOR.</strong>
+                <p>Everyone except the impostor receives the same anime character. Take turns giving one-word clues, then vote for the player who seems out of place. If the impostor survives, they can try to guess the character.</p>
+            </div>
+            <div class="imposter-match-status" id="matchStatus" aria-live="polite"></div>
+        </section>
+        <section id="roomPanel" class="imposter-panel hidden" aria-live="polite">
+            <div class="imposter-room-header">
+                <div><div class="pixel-label">// ACTIVE ROOM</div><h2 id="roomTitle">ROOM ------</h2></div>
+                <button id="leaveRoomButton" class="text-button">LEAVE ROOM</button>
+            </div>
+            <div class="imposter-room-code"><span>INVITE CODE</span><strong id="roomCodeDisplay">------</strong><button id="copyCodeButton" class="outline-button">COPY CODE</button><button id="copyInviteButton" class="outline-button">COPY INVITE LINK</button></div>
+            <div class="imposter-lobby-summary"><strong id="playerCount">0 / 4 PLAYERS</strong><span id="phaseLabel">LOBBY</span></div>
+            <div id="playerList" class="imposter-player-grid"></div>
+            <div id="gameStage" class="imposter-stage"></div>
+        </section>
+        <footer class="imposter-footer"><a href="games.html">← BACK TO GAMES</a><span>VIRTUAL DEDUCTION // NO PURCHASE NECESSARY</span></footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+    <script src="anime-imposter.js"></script>
+</body>
+</html>
