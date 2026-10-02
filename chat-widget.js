@@ -19,6 +19,14 @@
   const status = root.querySelector(".chat-status");
   const unread = root.querySelector(".chat-unread");
   // Lazy Supabase client: created on first use, so script order / late loading no longer breaks it
+  const libReady = new Promise((resolve) => {
+    if (window.supabase) return resolve();
+    const tag = document.createElement("script");
+    tag.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+    tag.onload = () => resolve();
+    tag.onerror = () => resolve();
+    document.head.appendChild(tag);
+  });
   let db = null;
   function getDb() {
     if (db) return db;
@@ -32,7 +40,7 @@
   }
   function isConfigured() { return !!getDb(); }
   function configError() {
-    if (!window.supabase) return "SUPABASE LIBRARY NOT LOADED. CHECK SCRIPT ORDER IN HTML.";
+    if (!window.supabase) return "SUPABASE LIBRARY FAILED TO LOAD. CHECK INTERNET CONNECTION.";
     return "MISSING window.ANIVIA_SUPABASE_CONFIG (url + anonKey). CHECK supabase-config.js.";
   }
   let user = null;
@@ -41,7 +49,7 @@
   let conversationData = [];
 
   function setStatus(message, error = false) { status.textContent = message; status.className = `chat-status${error ? " error" : ""}`; }
-  function toggle(open) { panel.classList.toggle("hidden", !open); if (open && !isConfigured()) { setStatus(configError(), true); return; } if (open) loadConversations(); }
+  async function toggle(open) { panel.classList.toggle("hidden", !open); if (!open) return; await libReady; if (!isConfigured()) { setStatus(configError(), true); return; } loadConversations(); }
   function avatar(name = "--") { return name.slice(0, 2).toUpperCase(); }
   function renderConversations(items = conversationData) {
     if (!items.length) { conversations.innerHTML = `<div class="chat-empty">NO CONVERSATIONS YET.<br>ADD A FRIEND TO START CHATTING.</div>`; return; }
@@ -53,6 +61,7 @@
   }
   function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character])); }
   async function ensureUser() {
+    await libReady;
     const client = getDb();
     if (!client) throw new Error(configError());
     const sessionResult = await client.auth.getSession();
@@ -76,5 +85,5 @@
   search.addEventListener("input", () => { const query = search.value.toLowerCase(); renderConversations(conversationData.filter((item) => item.name.toLowerCase().includes(query) || (item.last_message || "").toLowerCase().includes(query))); });
   launcher.addEventListener("click", () => toggle(panel.classList.contains("hidden"))); close.addEventListener("click", () => toggle(false)); back.addEventListener("click", () => { thread.classList.add("hidden"); conversations.classList.remove("hidden"); activeConversation = null; }); threadClose.addEventListener("click", () => { thread.classList.add("hidden"); conversations.classList.remove("hidden"); activeConversation = null; });
   window.openAniviaChat = (conversationId) => { toggle(true); if (conversationId) openConversation(conversationId); };
-  if (isConfigured()) loadConversations();
+  libReady.then(() => { if (isConfigured()) loadConversations(); });
 })();
