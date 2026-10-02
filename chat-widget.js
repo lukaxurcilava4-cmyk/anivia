@@ -18,7 +18,7 @@
   const search = root.querySelector(".chat-search");
   const status = root.querySelector(".chat-status");
   const unread = root.querySelector(".chat-unread");
-  const configured = window.supabase?.createClient && !window.ANIVIA_SUPABASE_CONFIG?.url?.includes("YOUR-") && !window.ANIVIA_SUPABASE_CONFIG?.anonKey?.includes("YOUR_");
+ const configured = Boolean(window.supabase?.createClient && window.ANIVIA_SUPABASE_CONFIG?.url);
   let db = null;
   let user = null;
   let activeConversation = null;

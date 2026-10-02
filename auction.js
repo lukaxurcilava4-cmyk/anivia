@@ -1,6 +1,6 @@
 (() => {
   const { createClient } = window.supabase || {};
-  const CONFIG = { url: "https://YOUR-PROJECT.supabase.co", anonKey: "YOUR_SUPABASE_ANON_KEY" };
+  const CONFIG = {url: "https://twuqlrmdnjqgbdidjcpa.supabase.co/", anonKey: "sb_publishable_SEJuLJtNiNaR3f6N26VBWA_Tjv9i..." };
   const configured = createClient && !CONFIG.url.includes("YOUR-") && !CONFIG.anonKey.includes("YOUR_");
   const db = configured ? createClient(CONFIG.url, CONFIG.anonKey) : null;
   const $ = (id) => document.getElementById(id);
