@@ -1,6 +1,6 @@
 (() => {
   // ===== SUPABASE SETTINGS (შეცვალე მხოლოდ URL) =====
-  const SUPABASE_URL = "https://twuqlrmdnjqgbdidjcpa.supabase.co/rest/v1/";
+ const SUPABASE_URL = "https://abcdefgh.supabase.co";
   const SUPABASE_KEY = "sb_publishable_SEJuLJtNINaR3f6N26VBWA_Tjv9i7U8";
   // ==================================================
   if (document.querySelector(".chat-widget-root")) return;
