@@ -1,4 +1,8 @@
 (() => {
+  // ===== SUPABASE SETTINGS (შეცვალე მხოლოდ URL) =====
+  const SUPABASE_URL = "https://YOUR-PROJECT-ID.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_SEJuLJtNINaR3f6N26VBWA_Tjv9i7U8";
+  // ==================================================
   if (document.querySelector(".chat-widget-root")) return;
   const root = document.createElement("div");
   root.className = "chat-widget-root";
@@ -30,7 +34,7 @@
   let db = null;
   function getDb() {
     if (db) return db;
-    const cfg = window.ANIVIA_SUPABASE_CONFIG;
+    const cfg = { url: SUPABASE_URL, anonKey: SUPABASE_KEY };
     if (window.supabase && typeof window.supabase.createClient === "function" && cfg && cfg.url && cfg.anonKey) {
       db = window.supabase.createClient(cfg.url, cfg.anonKey);
     } else if (window.sb) {
@@ -41,7 +45,7 @@
   function isConfigured() { return !!getDb(); }
   function configError() {
     if (!window.supabase) return "SUPABASE LIBRARY FAILED TO LOAD. CHECK INTERNET CONNECTION.";
-    return "MISSING window.ANIVIA_SUPABASE_CONFIG (url + anonKey). CHECK supabase-config.js.";
+    return "SET SUPABASE_URL AT THE TOP OF chat-widget.js.";
   }
   let user = null;
   let activeConversation = null;
