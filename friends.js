@@ -1,5 +1,5 @@
 (() => {
-  const supabaseConfig = { url: "https://YOUR-PROJECT.supabase.co", anonKey: "YOUR_SUPABASE_ANON_KEY" };
+  const supabaseConfig = {url: "https://twuqlrmdnjqgbdidjcpa.supabase.co/", anonKey: "sb_publishable_SEJuLJtNiNaR3f6N26VBWA_Tjv9i..." };
   const clientFactory = window.supabase?.createClient;
   const configured = clientFactory && !supabaseConfig.url.includes("YOUR-") && !supabaseConfig.anonKey.includes("YOUR_");
   const db = configured ? clientFactory(supabaseConfig.url, supabaseConfig.anonKey) : null;

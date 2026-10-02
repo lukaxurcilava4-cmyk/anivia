@@ -1,6 +1,6 @@
-console.log("ANIVIA SYSTEM ONLINE");
+﻿console.log("ANIVIA SYSTEM ONLINE");
 
-window.ANIVIA_SUPABASE_CONFIG = window.ANIVIA_SUPABASE_CONFIG || { url: "https://YOUR-PROJECT.supabase.co", anonKey: "YOUR_SUPABASE_ANON_KEY" };
+window.ANIVIA_SUPABASE_CONFIG = window.ANIVIA_SUPABASE_CONFIG || { url: "https://twuqlrmdnjqgbdidjcpa.supabase.co/", anonKey: "sb_publishable_SEJuLJtNiNaR3f6N26VBWA_Tjv9i..." };
 if (!document.querySelector('script[data-anivia-chat]')) {
   const chatScript = document.createElement("script");
   chatScript.src = "chat-widget.js";
